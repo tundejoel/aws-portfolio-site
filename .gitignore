@@ -1,0 +1,20 @@
+# Terraform - state contains secrets in plain text
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+*.tfvars.json
+.terraform.lock.hcl
+
+# Credentials and secrets
+.env
+.env.*
+*.pem
+*.key
+credentials
+config
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
