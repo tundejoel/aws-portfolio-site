@@ -1,5 +1,258 @@
-   <!DOCTYPE html>
-   <html>
-   <head><title>Adedayo Afolabi</title></head>
-   <body><h1>Adedayo Afolabi - Cloud Engineer</h1><p>Deployed automatically via GitHub Actions.</p></body>
-   </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adedayo Afolabi — Cloud Engineer</title>
+<meta name="description" content="Adedayo Afolabi, Ph.D. — AWS cloud engineer and STEM education researcher. Infrastructure as code, serverless, and AI-assisted learning research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#202225;
+    --surface:#292c30;
+    --line:#3a3e43;
+    --orange:#c75b12;
+    --orange-bright:#e07b33;
+    --text:#ede7df;
+    --muted:#a6a29b;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --serif:'IBM Plex Serif',Georgia,serif;
+    --sans:'IBM Plex Sans',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--orange-bright);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--orange-bright);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:rgba(32,34,37,.92);backdrop-filter:blur(6px);z-index:10;
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .nav .logo{font-family:var(--mono);font-size:.95rem;color:var(--text)}
+  .nav .logo b{color:var(--orange-bright);font-weight:500}
+  .nav ul{display:flex;gap:26px;list-style:none}
+  .nav a{color:var(--muted);font-size:.92rem}
+  .nav a:hover{color:var(--text);text-decoration:none}
+
+  /* ---------- hero ---------- */
+  .hero{padding:96px 0 72px}
+  .eyebrow{
+    font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;
+    color:var(--orange-bright);text-transform:uppercase;margin-bottom:20px;
+  }
+  h1{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(2.2rem,5.5vw,3.4rem);
+    line-height:1.15;letter-spacing:-.01em;max-width:20ch;
+  }
+  h1 .amp{color:var(--orange-bright);font-style:italic}
+  .hero p.lede{margin-top:26px;max-width:58ch;color:var(--muted);font-size:1.06rem}
+  .hero p.lede strong{color:var(--text);font-weight:500}
+  .hero-links{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-block;padding:11px 20px;border:1px solid var(--line);border-radius:6px;
+    font-size:.92rem;color:var(--text);transition:border-color .15s,background .15s;
+  }
+  .btn:hover{border-color:var(--orange);text-decoration:none;background:rgba(199,91,18,.08)}
+  .btn.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+  .btn.primary:hover{background:var(--orange-bright);border-color:var(--orange-bright)}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{
+    font-family:var(--serif);font-weight:500;font-size:1.7rem;margin-bottom:8px;
+  }
+  .section-note{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:36px}
+
+  /* ---------- about: two tracks ---------- */
+  .tracks{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px}
+  .track{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px}
+  .track h3{font-family:var(--mono);font-weight:500;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-bright);margin-bottom:14px}
+  .track p{color:var(--muted);font-size:.97rem}
+  .track p+p{margin-top:12px}
+  .track p strong{color:var(--text);font-weight:500}
+  .about-lede{max-width:64ch;color:var(--muted);margin-bottom:30px}
+  .about-lede strong{color:var(--text);font-weight:500}
+
+  /* ---------- featured project ---------- */
+  .project{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:32px;margin-top:6px}
+  .project .tag{font-family:var(--mono);font-size:.75rem;color:var(--bg);background:var(--orange-bright);border-radius:4px;padding:3px 9px;display:inline-block;margin-bottom:16px}
+  .project h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;margin-bottom:14px}
+  .project p{color:var(--muted);font-size:.97rem;max-width:68ch}
+  .project p+p{margin-top:12px}
+  .project p strong{color:var(--text);font-weight:500}
+  .flow{
+    font-family:var(--mono);font-size:.82rem;line-height:1.9;
+    background:var(--bg);border:1px solid var(--line);border-radius:6px;
+    padding:18px 20px;margin:22px 0;overflow-x:auto;white-space:pre;color:var(--text);
+  }
+  .flow .o{color:var(--orange-bright)}
+  .flow .c{color:var(--muted)}
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .stack span{font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:4px 10px}
+  .project .links{margin-top:22px;display:flex;gap:18px;font-size:.92rem}
+  .roadmap{margin-top:28px;color:var(--muted);font-size:.95rem;max-width:68ch}
+  .roadmap strong{color:var(--text);font-weight:500}
+
+  /* ---------- skills ---------- */
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .skills .track ul{list-style:none;margin-top:4px}
+  .skills .track li{color:var(--muted);font-size:.95rem;padding:7px 0;border-bottom:1px solid var(--line)}
+  .skills .track li:last-child{border-bottom:none}
+  .skills .track li b{color:var(--text);font-weight:500}
+
+  /* ---------- contact ---------- */
+  .contact p{color:var(--muted);max-width:56ch}
+  .contact .hero-links{margin-top:28px}
+  footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-family:var(--mono);font-size:.78rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  @media (max-width:720px){
+    .tracks,.skills{grid-template-columns:1fr}
+    .nav ul{gap:16px}
+    .hero{padding:64px 0 48px}
+    section{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <span class="logo">adedayoafolabi<b>.com</b></span>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">Adedayo Afolabi, Ph.D.</p>
+    <h1>Cloud engineer <span class="amp">&amp;</span> learning-sciences researcher.</h1>
+    <p class="lede">I build AWS infrastructure the way I ran research: <strong>document everything, automate the repeatable, and be able to explain every decision.</strong> This site runs on architecture I built and manage entirely as code — S3, CloudFront, Route 53, and a keyless CI/CD pipeline, all under Terraform.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="#projects">See how this site works</a>
+      <a class="btn" href="https://github.com/tundejoel" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/tundejoel" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>Two tracks, one habit of mind</h2>
+      <p class="section-note">// rigor transfers</p>
+      <p class="about-lede">I spent a decade teaching mathematics across Nigeria, The Gambia, and the United States, then completed a Ph.D. at Texas Tech University building <strong>AI systems that evaluate how students reason</strong> in math and physics — not whether answers match, but whether the thinking holds up. Cloud engineering is where that discipline now lives: infrastructure that can be read, versioned, and defended line by line.</p>
+      <div class="tracks">
+        <div class="track">
+          <h3>Cloud &amp; Infrastructure</h3>
+          <p>Hands-on AWS: static hosting on S3 behind CloudFront with Origin Access Control, DNS and TLS with Route 53 and ACM, and least-privilege IAM throughout.</p>
+          <p>Everything ends up in <strong>Terraform</strong> — including importing live production resources into code with zero drift. Deployments run through <strong>GitHub Actions with OIDC</strong>: no stored AWS keys anywhere.</p>
+        </div>
+        <div class="track">
+          <h3>Research &amp; Teaching</h3>
+          <p>Ph.D. in Curriculum &amp; Instruction (STEM Education, mathematics concentration), Texas Tech University. Dissertation: <strong>learning-progression-guided AI evaluation</strong> of math-science sensemaking in first-year physics.</p>
+          <p>Peer-reviewed publications, AERA presentations, and a 100% pass rate coaching students through international mathematics examinations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="section-note">// built in public — one repo per project</p>
+
+      <article class="project">
+        <span class="tag">LIVE — you are looking at it</span>
+        <h3>Cloud-hosted portfolio with keyless automated deployment</h3>
+        <p>This page is served from a <strong>private</strong> S3 bucket — Block Public Access fully on — that only CloudFront can read, via Origin Access Control. DNS on Route 53, HTTPS from ACM, HTTP redirected to HTTPS at the edge.</p>
+        <div class="flow"><span class="c">// request path</span>
+browser → Route 53 → CloudFront <span class="o">(TLS, cache)</span> → OAC → private S3
+<span class="c">// deploy path</span>
+git push → GitHub Actions → <span class="o">OIDC token</span> → scoped IAM role → s3 sync → invalidation</div>
+        <p>Every push to <code>main</code> deploys automatically — with <strong>no AWS keys stored in GitHub</strong>. The pipeline authenticates through OpenID Connect: GitHub mints a short-lived token, and an IAM role trusts it only if the token's audience is AWS <em>and</em> its subject is this exact repository on the main branch. The role itself can do four things — list, put, and delete objects in one bucket, and invalidate one distribution. Nothing else.</p>
+        <p>All sixteen resources — bucket, DNS records, certificate, distribution, identity provider, role, and policy — are managed in <strong>Terraform</strong>, imported from live infrastructure to a clean "no changes" plan.</p>
+        <p><strong>Favorite bug:</strong> the pipeline's first OIDC handshake failed because GitHub had just changed its token subject format for new repositories, appending immutable numeric IDs. Decoding the JWT claims in a debug step exposed the mismatch; pinning the trust policy to the exact new format fixed it — and made the policy stricter than the tutorial version.</p>
+        <div class="stack">
+          <span>S3</span><span>CloudFront</span><span>Route 53</span><span>ACM</span><span>IAM · OIDC</span><span>Terraform</span><span>GitHub Actions</span>
+        </div>
+        <p class="links"><a href="https://github.com/tundejoel/aws-portfolio-site" rel="noopener">Repository →</a></p>
+      </article>
+
+      <p class="roadmap"><strong>Next on the bench:</strong> a serverless contact form and visitor counter for this site — Lambda, API Gateway, DynamoDB, and SES, written Terraform-first — followed by a cost-guardian automation suite and a three-tier VPC application. Six projects, one roadmap, all public.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Working stack</h2>
+      <p class="section-note">// tools I use, not tools I've heard of</p>
+      <div class="skills">
+        <div class="track">
+          <h3>Cloud</h3>
+          <ul>
+            <li><b>AWS</b> — S3, CloudFront, Route 53, ACM, IAM, CLI</li>
+            <li><b>IaC</b> — Terraform (HCL, state, import, drift)</li>
+            <li><b>CI/CD</b> — GitHub Actions, OIDC federation</li>
+            <li><b>Security</b> — least-privilege IAM, OAC, keyless auth</li>
+            <li><b>Cert</b> — AWS AI Practitioner (in progress)</li>
+          </ul>
+        </div>
+        <div class="track">
+          <h3>Research &amp; Data</h3>
+          <ul>
+            <li><b>Python</b> — data analysis, scripting</li>
+            <li><b>Statistics</b> — SPSS, JASP, statistical modeling</li>
+            <li><b>AI</b> — LLM evaluation, prompt engineering, chatbots</li>
+            <li><b>Methods</b> — mixed-methods research, academic writing</li>
+            <li><b>Agile</b> — Certified Scrum Master</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p class="section-note">// open to cloud engineering roles</p>
+      <p>I'm looking for a cloud engineering role where infrastructure is treated as a product: versioned, reviewed, and understood. If that sounds like your team, I'd like to hear from you.</p>
+      <div class="hero-links">
+        <a class="btn primary" href="mailto:hello@adedayoafolabi.com">hello@adedayoafolabi.com</a>
+        <a class="btn" href="https://github.com/tundejoel" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/tundejoel" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Adedayo Afolabi</span>
+    <span>deployed by git push · no keys were stored in the making of this site</span>
+  </div>
+</footer>
+
+</body>
+</html>
