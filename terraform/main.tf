@@ -227,7 +227,21 @@ resource "aws_iam_role_policy" "portfolio_deploy" {
   })
 }
 
-import {
-  to = aws_iam_role_policy.portfolio_deploy
-  id = "github-actions-portfolio-deploy:portfolio-deploy-policy"
+resource "aws_route53_record" "mx" {
+  zone_id = data.aws_route53_zone.site.zone_id
+  name    = data.aws_route53_zone.site.name
+  type    = "MX"
+  ttl     = 300
+  records = [
+    "10 mx1.improvmx.com",
+    "20 mx2.improvmx.com",
+  ]
+}
+
+resource "aws_route53_record" "spf" {
+  zone_id = data.aws_route53_zone.site.zone_id
+  name    = data.aws_route53_zone.site.name
+  type    = "TXT"
+  ttl     = 300
+  records = ["v=spf1 include:spf.improvmx.com ~all"]
 }
