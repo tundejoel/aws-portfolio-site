@@ -12,26 +12,10 @@ AWS access key.
 
 ## Architecture
 
-**Request path (a visitor loads the site):**
-
-```
-Browser ──DNS──> Route 53 (A/AAAA alias)
-        ──HTTPS──> CloudFront (TLS via ACM certificate)
-        ──Origin Access Control──> S3 bucket (private, Block Public Access ON)
-```
+![Architecture diagram: request path, deploy path, and email forwarding](docs/architecture.png)
 
 The S3 bucket is not public. CloudFront reaches it through an Origin Access
-Control (OAC), and the bucket policy admits only that distribution. Visitors
-can never bypass the CDN and hit the bucket directly.
-
-**Deploy path (a commit lands on `main`):**
-
-```
-git push ──> GitHub Actions workflow
-         ──OIDC──> assumes IAM role (no stored credentials)
-         ──> aws s3 sync (uploads changed files, deletes removed ones)
-         ──> CloudFront cache invalidation
-```
+Control (OAC), and the bucket policy admits only that distribution. Visitors can never bypass the CDN and hit the bucket directly.
 
 **Email path:** `hello@adedayoafolabi.com` is a real, monitored address. MX
 records in Route 53 direct inbound mail to a forwarding service (ImprovMX),
