@@ -128,6 +128,56 @@
     .hero{padding:64px 0 48px}
     section{padding:48px 0}
   }
+
+  #contact { padding: 3rem 0; }
+
+#contact-form {
+  max-width: 32rem;
+  margin-top: 1.5rem;
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+#contact-form input,
+#contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#contact-form textarea { min-height: 7rem; resize: vertical; }
+
+#contact-form button {
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+#contact-form button:hover { background: rgba(255, 255, 255, 0.1); }
+
+#contact-status { margin-top: 0.75rem; font-size: 0.9rem; opacity: 0.85; }
 </style>
 </head>
 <body>
@@ -247,14 +297,17 @@ git push → GitHub Actions → <span class="o">OIDC token</span> → scoped IAM
   </section>
 
   <section id="contact">
-  <h2>Contact</h2>
-  <form id="contact-form">
-    <label>Name <input name="name" required maxlength="100"></label>
-    <label>Email <input name="email" type="email" required maxlength="254"></label>
-    <label>Message <textarea name="message" required maxlength="2000"></textarea></label>
-    <button type="submit">Send</button>
-    <p id="contact-status"></p>
-  </form>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Have a question or an opportunity? Send a note — it lands in my inbox.</p>
+    <form id="contact-form">
+      <label>Name <input name="name" required maxlength="100"></label>
+      <label>Email <input name="email" type="email" required maxlength="254"></label>
+      <label>Message <textarea name="message" required maxlength="2000"></textarea></label>
+      <button type="submit">Send</button>
+      <p id="contact-status"></p>
+    </form>
+  </div>
 </section>
 </main>
 
