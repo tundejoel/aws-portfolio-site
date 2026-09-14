@@ -252,7 +252,19 @@ git push → GitHub Actions → <span class="o">OIDC token</span> → scoped IAM
     <span>© 2026 Adedayo Afolabi</span>
     <span>deployed by git push · no keys were stored in the making of this site</span>
   </div>
+  <p>You are visitor number <span id="visit-count">…</span></p>
 </footer>
+
+<script>
+  fetch("https://qq16p4qtz9.execute-api.us-east-1.amazonaws.com/visits")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("visit-count").textContent = data.count;
+    })
+    .catch(() => {
+      document.getElementById("visit-count").textContent = "–";
+    });
+</script>
 
 </body>
 </html>
